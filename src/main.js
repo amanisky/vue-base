@@ -5,7 +5,6 @@ import App from './App'
 import router from './router'
 import store from './store'
 import CorePlugin from './plugins/'
-import '@/icons'
 Vue.use(CorePlugin)
 
 /* eslint-disable no-new */
