@@ -2,7 +2,6 @@ import 'normalize.css/normalize.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 import '@/styles/index.scss'
-import '@/icons'
 
 export default {
   install (Vue) {
