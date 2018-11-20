@@ -1,6 +1,6 @@
 <template>
   <el-menu class="navbar" mode="horizontal">
-    <hamburger :toggle-click="toggleSideBar" :is-active="sidebar.opened" class="hamburger-container"/>
+    <hamburger :toggle-click="toggleSidebar" :is-active="sidebar.opened" class="hamburger-container"/>
     <breadcrumb />
     <el-dropdown class="avatar-container" trigger="click">
       <div class="avatar-wrapper">
@@ -22,22 +22,25 @@
 <script>
 import Breadcrumb from './Breadcrumb'
 import Hamburger from './Hamburger'
+import { mapState, mapMutations } from 'vuex'
 
 export default {
   name: 'NavBar',
   data () {
     return {
-      sidebar: {},
       avatar: 'https://wpimg.wallstcn.com/f778738c-e4f8-4870-b634-56703b4acafe.gif'
     }
   },
+  computed: mapState('app', ['sidebar']),
   components: {
     Breadcrumb,
     Hamburger
   },
   methods: {
-    toggleSideBar () { },
-    logout () { }
+    ...mapMutations('app', ['toggleSidebar']),
+    logout () {
+      console.log(this.sidebar.opened)
+    }
   }
 }
 </script>

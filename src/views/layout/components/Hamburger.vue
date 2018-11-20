@@ -1,7 +1,7 @@
 <template>
   <div>
     <svg
-      :class="{'is-active':isActive}"
+      :class="{'is-active': isActive}"
       t="1492500959545"
       class="hamburger"
       style=""
@@ -51,7 +51,7 @@ export default {
   transform: rotate(90deg);
   transition: .38s;
   transform-origin: 50% 50%;
-  .is-active {
+  &.is-active {
     transform: rotate(0deg);
   }
 }

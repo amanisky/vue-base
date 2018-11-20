@@ -1,6 +1,6 @@
 <template>
   <div :class="classObj" class="app-wrapper">
-    <div v-if="device === 'mobile' && sidebar.opened" class="drawer-bg" @click="handleClickOutside"/>
+    <div v-if="device === 'mobile' && sidebar.opened" class="drawer-bg" @click="closeSidebar(false)"/>
     <sidebar class="sidebar-container"/>
     <div class="main-container">
       <navbar/>
@@ -11,27 +11,28 @@
 
 <script>
 import { Navbar, Sidebar, AppMain } from './components'
+import { mapState, mapMutations } from 'vuex'
 // import ResizeMixin from './mixin/resize'
 
 export default {
   name: 'Layout',
-  data () {
-    return {
-      classObj: { hideSidebar: false, openSidebar: true, withoutAnimation: false, mobile: false },
-      device: 'desktop',
-      sidebar: { opened: true, withoutAnimation: false }
-    }
-  },
   components: {
     Navbar,
     Sidebar,
     AppMain
   },
-  methods: {
-    handleClickOutside () {
-
+  computed: {
+    ...mapState('app', ['sidebar', 'device']),
+    classObj () {
+      return {
+        hideSidebar: !this.sidebar.opened,
+        openSidebar: this.sidebar.opened,
+        withoutAnimation: this.sidebar.withoutAnimation,
+        mobile: this.device === 'mobile'
+      }
     }
-  }
+  },
+  methods: mapMutations('app', ['closeSidebar'])
 }
 </script>
 

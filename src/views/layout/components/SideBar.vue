@@ -15,15 +15,12 @@
 
 <script>
 import SidebarItem from './SidebarItem'
+import { mapState } from 'vuex'
 
 export default {
   components: { SidebarItem },
-  data () {
-    return {
-      sidebar: {opened: true, withoutAnimation: false}
-    }
-  },
   computed: {
+    ...mapState('app', ['sidebar']),
     routes () {
       return this.$router.options.routes
     },
