@@ -12,11 +12,11 @@ const router = new Router({
  * 权限验证
  */
 router.beforeEach((to, from, next) => {
-  console.log(to, '路由开始...')
+  // console.log(to, '路由开始...')
   next()
 })
 
 router.afterEach(to => {
-  console.log(to, '路由完成...')
+  // console.log(to, '路由完成...')
 })
 export default router

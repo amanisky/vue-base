@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: 'form1'
+  name: 'myform'
 }
 </script>

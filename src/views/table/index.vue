@@ -4,6 +4,6 @@
 
 <script>
 export default {
-  name: 'table'
+  name: 'mytable'
 }
 </script>
