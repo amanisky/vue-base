@@ -20,7 +20,6 @@ export default {
       return isExternal(routePath)
     },
     linkProps (url) {
-      console.log(url, 8989)
       if (this.isExternalLink(url)) {
         return {
           is: 'a',

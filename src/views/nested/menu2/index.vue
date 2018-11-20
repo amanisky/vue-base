@@ -1,6 +1,6 @@
 <template>
   <div style="padding:30px;">
-    <el-alert :closable="false">
+    <el-alert :closable="false" title="">
       <h2>Menu2</h2>
     </el-alert>
   </div>

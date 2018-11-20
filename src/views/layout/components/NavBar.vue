@@ -38,9 +38,7 @@ export default {
   },
   methods: {
     ...mapMutations('app', ['toggleSidebar']),
-    logout () {
-      console.log(this.sidebar.opened)
-    }
+    logout () {}
   }
 }
 </script>

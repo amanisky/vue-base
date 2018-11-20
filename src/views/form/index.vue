@@ -1,6 +1,6 @@
 <template>
   <div style="padding:30px;">
-    <el-alert :closable="false">
+    <el-alert :closable="false" title="">
       <h2>Form</h2>
     </el-alert>
   </div>

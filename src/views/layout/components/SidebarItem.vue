@@ -89,7 +89,6 @@ export default {
       if (this.isExternalLink(routePath)) {
         return routePath
       }
-      console.log(this.basePath, routePath, 99, path.resolve(this.basePath, routePath))
       return path.resolve(this.basePath, routePath)
     },
     isExternalLink (routePath) {
