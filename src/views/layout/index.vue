@@ -15,10 +15,6 @@ import Navbar from './components/Navbar'
 import Sidebar from './components/Sidebar'
 import AppMain from './components/AppMain'
 
-const { body } = document
-const WIDTH = 1024
-const RATIO = 3
-
 export default {
   name: 'Layout',
   components: {
@@ -57,8 +53,8 @@ export default {
   methods: {
     ...mapMutations('app', ['closeSidebar', 'toggleDevice']),
     isMobile () {
-      const rect = body.getBoundingClientRect()
-      return rect.width - RATIO < WIDTH
+      const rect = document.body.getBoundingClientRect()
+      return rect.width - 3 < 1024
     },
     resizeHandler () {
       if (!document.hidden) {
