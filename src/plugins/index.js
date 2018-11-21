@@ -1,6 +1,7 @@
 import 'normalize.css/normalize.css'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
+import i18n from '@/lang'
 import '@/styles/index.scss'
 import '@/icons'
 
@@ -16,6 +17,9 @@ export default {
     // 当前的 baseUrl
     Vue.prototype.$baseUrl = process.env.BASE_URL
 
-    Vue.use(ElementUI)
+    // 配置 ElementUI 语言
+    Vue.use(ElementUI, {
+      i18n: (key, value) => i18n.t(key, value)
+    })
   }
 }

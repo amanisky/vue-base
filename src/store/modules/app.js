@@ -5,6 +5,7 @@ const state = {
     opened: !+Cookies.get('sidebarStatus'),
     withoutAnimation: false
   },
+  language: Cookies.get('language') || 'zh',
   device: 'desktop'
 }
 
@@ -25,6 +26,11 @@ const mutations = {
     }
     state.sidebar.opened = !state.sidebar.opened
     state.sidebar.withoutAnimation = false
+  },
+  // 设置语言
+  setLanguage (state, language) {
+    state.language = language
+    Cookies.set('language', language)
   },
   // 关闭侧边栏
   closeSidebar (state, withoutAnimation) {
