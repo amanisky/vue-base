@@ -10,9 +10,14 @@
 </template>
 
 <script>
-import { Navbar, Sidebar, AppMain } from './components'
 import { mapState, mapMutations } from 'vuex'
-// import ResizeMixin from './mixin/resize'
+import Navbar from './components/Navbar'
+import Sidebar from './components/Sidebar'
+import AppMain from './components/AppMain'
+
+const { body } = document
+const WIDTH = 1024
+const RATIO = 3
 
 export default {
   name: 'Layout',
@@ -20,6 +25,23 @@ export default {
     Navbar,
     Sidebar,
     AppMain
+  },
+  beforeMount () {
+    window.addEventListener('resize', this.resizeHandler)
+  },
+  mounted () {
+    const isMobile = this.isMobile()
+    if (isMobile) {
+      this.toggleDevice('mobile')
+      this.closeSidebar(true)
+    }
+  },
+  watch: {
+    $route () {
+      if (this.device === 'mobile' && this.sidebar.opened) {
+        this.closeSidebar(false)
+      }
+    }
   },
   computed: {
     ...mapState('app', ['sidebar', 'device']),
@@ -32,7 +54,23 @@ export default {
       }
     }
   },
-  methods: mapMutations('app', ['closeSidebar'])
+  methods: {
+    ...mapMutations('app', ['closeSidebar', 'toggleDevice']),
+    isMobile () {
+      const rect = body.getBoundingClientRect()
+      return rect.width - RATIO < WIDTH
+    },
+    resizeHandler () {
+      if (!document.hidden) {
+        const isMobile = this.isMobile()
+        this.toggleDevice(isMobile ? 'mobile' : 'desktop')
+
+        if (isMobile) {
+          this.closeSidebar(true)
+        }
+      }
+    }
+  }
 }
 </script>
 

@@ -1,5 +1,5 @@
 <template>
-  <div class="my-link" v-bind="linkProps(to)">
+  <div v-bind="linkProps(to)">
     <slot/>
   </div>
 </template>
@@ -8,7 +8,7 @@
 import { isExternal } from '@/utils'
 
 export default {
-  name: 'mylink',
+  name: 'HyperLink',
   props: {
     to: {
       type: String,
