@@ -4,6 +4,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 import i18n from '@/lang'
 import '@/styles/index.scss'
 import '@/icons'
+import '@/mock'
 
 export default {
   install (Vue) {

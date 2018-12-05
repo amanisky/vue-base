@@ -7,15 +7,22 @@
 }
 
 @mixin scrollBar {
+  &::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  // 滑道
   &::-webkit-scrollbar-track-piece {
     background: #d3dce6;
+    border-radius: 10px;
   }
-  &::-webkit-scrollbar {
-    width: 6px;
-  }
+  // 滑块
   &::-webkit-scrollbar-thumb {
     background: #99a9bf;
-    border-radius: 20px;
+    border-radius: 10px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background-color: #777;
   }
 }
 
