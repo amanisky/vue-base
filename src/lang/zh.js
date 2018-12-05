@@ -9,6 +9,7 @@ export default {
     'menu1-2': '菜单1-2',
     menu2: '菜单2',
     tree: '树',
+    draw: '绘图',
     nested: '路由嵌套',
     externalLink: '外链'
   },

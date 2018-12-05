@@ -66,6 +66,19 @@ const constantRouterMap = [
   },
 
   {
+    path: '/draw',
+    component: Layout,
+    children: [
+      {
+        path: '',
+        name: 'draw',
+        component: () => import('@/views/draw'),
+        meta: { title: 'draw', icon: 'drag' }
+      }
+    ]
+  },
+
+  {
     path: '/nested',
     component: Layout,
     redirect: '/nested/menu1',

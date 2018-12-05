@@ -9,6 +9,7 @@ export default {
     'menu1-2': 'Menu 1-2',
     menu2: 'Menu 2',
     tree: 'Tree',
+    draw: 'Draw',
     nested: 'Nested Routes',
     externalLink: 'External Link'
   },
