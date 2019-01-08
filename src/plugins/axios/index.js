@@ -7,7 +7,7 @@ const server = axios.create({
 /**
  * 请求拦截器
  */
-axios.interceptors.request.use(function (config) {
+server.interceptors.request.use(function (config) {
   config.headers['Authorization'] = 'Bear amaniskyappleshy'
   return config
 }, function (error) {
@@ -17,7 +17,7 @@ axios.interceptors.request.use(function (config) {
 /**
  * 响应拦截器
  */
-axios.interceptors.response.use(function (response) {
+server.interceptors.response.use(function (response) {
   return response
 }, function (error) {
   return Promise.reject(error)
